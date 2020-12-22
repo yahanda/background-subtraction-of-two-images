@@ -14,8 +14,12 @@
   <table>
     <tbody>
       <tr>
+        {% if source_img_url %}
         <td align="center">比較する画像１</td>
+        {% endif %}
+        {% if target_img_url %}
         <td align="center">比較する画像２</td>
+        {% endif %}
       </tr>
       <tr>
         <td>
@@ -30,7 +34,9 @@
         </td>
       </tr>
       <tr>
+        {% if diff_img_url %}
         <td align="center">背景差分結果</td>
+        {% endif %}
       </tr>
       <tr>
         <td>
