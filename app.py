@@ -11,10 +11,10 @@ from azure.storage.blob import BlobServiceClient
 from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 from azure.storage.blob import generate_blob_sas, BlobSasPermissions
 
-account_name = "{blob_account_name}"
-account_key = "{blob_account_key}"
-connect_str = "{blob_connection_string}"
-container_name = "{blob_container_name}"
+account_name = "adls4yahanda"
+account_key = "X1GCHt9Rlp0Pbpy9tSPUISHp82EtBzWDnRQaAZhIPDaL8vvU2twMnw5gW1f8DEm/o2F3OhWcEPot7YVJnpFXUg=="
+connect_str = "DefaultEndpointsProtocol=https;AccountName=adls4yahanda;AccountKey=X1GCHt9Rlp0Pbpy9tSPUISHp82EtBzWDnRQaAZhIPDaL8vvU2twMnw5gW1f8DEm/o2F3OhWcEPot7YVJnpFXUg==;EndpointSuffix=core.windows.net"
+container_name = "diffimage"
 
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'PNG', 'JPG'])
@@ -110,4 +110,4 @@ def send():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0')
