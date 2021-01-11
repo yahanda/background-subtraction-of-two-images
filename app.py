@@ -7,14 +7,16 @@ from urllib.request import urlopen
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 from azure.storage.blob import BlobServiceClient
 from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 from azure.storage.blob import generate_blob_sas, BlobSasPermissions
 
-account_name = "{blob_account_name}"
-account_key = "{blob_account_key}"
-connect_str = "{blob_connection_string}"
-container_name = "{blob_container_name}"
+load_dotenv()
+account_name = os.environ.get("ACCOUNT_NAME")
+account_key = os.environ.get("ACCOUNT_KEY")
+connect_str = os.environ.get("CONNECT_STR")
+container_name = os.environ.get("CONTAINER_NAME")
 
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'PNG', 'JPG'])
